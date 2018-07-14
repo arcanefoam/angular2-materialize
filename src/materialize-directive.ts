@@ -249,12 +249,12 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
                     if (Materialize[functionName]) {
                         if (params) {
                             if (params instanceof Array) {
-                                Materialize[functionName](...params);
+                                Materialize[functionName].init(...params);
                             } else {
                                 throw new Error("Params has to be an array.");
                             }
                         } else {
-                            Materialize[functionName]();
+                            Materialize[functionName].init();
                         }
                     } else {
                         throw new Error("Couldn't find materialize function ''" + functionName + "' on element or the global Materialize object.");
